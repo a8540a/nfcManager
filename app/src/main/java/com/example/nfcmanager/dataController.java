@@ -52,6 +52,18 @@ public class dataController {
         return array;
     }
 
+    public boolean count92(byte[] a){
+        int counter = 0;
+        for(int i : a){
+            if(i==92){
+                counter++;
+            }
+            if(counter==5)
+                return true;
+        }
+        return false;
+    }
+
 
 
 }
