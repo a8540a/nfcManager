@@ -39,22 +39,30 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.SQLOutput;
 import java.sql.Statement;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
-
-
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 public class writeActivity extends AppCompatActivity {
 
     NfcAdapter nfcAdapter;
     PendingIntent pendingIntent;
     String prodName,Loc,Date,Qty,uID = "00000000";
     byte[] byteString;
-
+    List<product> products;
     final static String TAG = "testcode";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_write);
+
+        DataService dataService = new DataService();
+
+
 
         nfcAdapter = NfcAdapter.getDefaultAdapter(this);
 
@@ -63,14 +71,14 @@ public class writeActivity extends AppCompatActivity {
         }
         pendingIntent = PendingIntent.getActivity(this,0,new Intent(this,this.getClass()).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP),0);
 
-        Button writeButton = (Button) findViewById(R.id.set);
+
         EditText uid = findViewById(R.id.editTextTextPersonName);
         EditText ProdName = findViewById(R.id.editTextTextPersonName2);
         EditText qty = findViewById(R.id.editTextTextPersonName3);
         EditText loc = findViewById(R.id.editTextTextPersonName4);
         EditText date = findViewById(R.id.editTextTextPersonName5);
 
-
+        Button writeButton = (Button) findViewById(R.id.set);
         writeButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
@@ -85,12 +93,54 @@ public class writeActivity extends AppCompatActivity {
             }
 
         });
+
+        dataService.select.selectAll().enqueue(new Callback<List<product>>() {
+            @Override
+            public void onResponse(Call<List<product>> call, Response<List<product>> response) {
+
+                products = response.body();
+
+            }
+            @Override
+            public void onFailure(Call<List<product>> call, Throwable t) {
+                t.printStackTrace();
+            }
+        });
+
+
+        Button btn_add = (Button) findViewById(R.id.set2);
+        btn_add.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Map<String, String> map = new HashMap();
+                map.put("prodName", ProdName.getText().toString());
+                map.put("qty", qty.getText().toString());
+                map.put("loc", loc.getText().toString());
+
+                dataService.insert.insertOne(map).enqueue(new Callback<product>() {
+                    @Override
+                    public void onResponse(Call<product> call, Response<product> response) {
+
+                        Toast.makeText(writeActivity.this, "등록 완료", Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onFailure(Call<product> call, Throwable t) {
+                        System.out.println("등록실패");
+                    }
+
+                });
+            }
+        });
+
+
+
     }
     @Override
     protected void onResume() {
         super.onResume();
-        assert nfcAdapter != null;
-        nfcAdapter.enableForegroundDispatch(this,pendingIntent,null,null);
+        //assert nfcAdapter != null;
+        //nfcAdapter.enableForegroundDispatch(this,pendingIntent,null,null);
     }
     @Override
     protected void onPause() {
