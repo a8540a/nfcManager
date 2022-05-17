@@ -4,14 +4,14 @@ import java.util.Date;
 
 public class product {
 
-    private int uID;
+    private int uid;
     private String prodName;
     private String loc;
     private int qty;
     private Date date;
 
     public int getuID(){
-        return uID;
+        return uid;
     }
     public String getName(){
         return prodName;
@@ -22,7 +22,7 @@ public class product {
     public int getQty(){
         return qty;
     }
-    public Date date(){
+    public Date getDate(){
         return date;
     }
 
