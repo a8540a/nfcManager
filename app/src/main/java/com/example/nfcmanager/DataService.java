@@ -16,7 +16,7 @@ import retrofit2.http.Path;
 
 
 public class DataService {
-    private String BASE_URL = "http://10.0.2.2:8080/"; // TODO REST API 퍼블릭 IP로 변경
+    private String BASE_URL = "http://34.226.128.9:8080/product/"; // TODO REST API 퍼블릭 IP로 변경
 
     Retrofit retrofitClient =
             new Retrofit.Builder()
@@ -32,10 +32,10 @@ public class DataService {
 }
 
 interface SelectAPI{
-    @GET("select/{id}")
+    @POST("getById/{id}")
     Call<product> selectOne(@Path("id") long id);
 
-    @GET("select")
+    @GET("getAll")
     Call<List<product>> selectAll();
 }
 interface InsertAPI{
