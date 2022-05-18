@@ -9,6 +9,8 @@ import android.nfc.Tag;
 import android.nfc.tech.MifareUltralight;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -19,13 +21,23 @@ public class readActivity extends AppCompatActivity {
 
     NfcAdapter nfcAdapter;
     PendingIntent pendingIntent;
-
+    TextView uid;
+    TextView ProdName;
+    TextView qty;
+    TextView loc;
+    TextView date;
     final static String TAG = "testcode";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_read);
+
+        uid = findViewById(R.id.textView);
+        ProdName = findViewById(R.id.textView2);
+        qty = findViewById(R.id.textView3);
+        loc = findViewById(R.id.textView4);
+        date = findViewById(R.id.textView6);
 
         nfcAdapter = NfcAdapter.getDefaultAdapter(this);
 
@@ -34,7 +46,27 @@ public class readActivity extends AppCompatActivity {
         }
         pendingIntent = PendingIntent.getActivity(this,0,new Intent(this,this.getClass()).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP),0);
 
+        Button writeButton = (Button) findViewById(R.id.btn_modify);
+        writeButton.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                String uidinput = uid.getText().toString();
+                String ProdNameinput = ProdName.getText().toString();
+                String qtyinput = qty.getText().toString();
+                String locinput = loc.getText().toString();
+                String dateinput = date.getText().toString();
 
+
+
+
+                Intent intent = new Intent(readActivity.this, rwActivity.class);
+                intent.putExtra("uidinput",uidinput);
+                intent.putExtra("prodnameinput",ProdNameinput);
+                intent.putExtra("qtyinput",qtyinput);
+                intent.putExtra("locinput",locinput);
+                intent.putExtra("dateinput",dateinput);
+                startActivity(intent);
+            }
+        });
 
     }
 
@@ -81,11 +113,7 @@ public class readActivity extends AppCompatActivity {
                 MifareUltralight mifareUlTag = MifareUltralight.get(tag);
                 String [] temp = readTag(mifareUlTag);
 
-                TextView uid = findViewById(R.id.textView);
-                TextView ProdName = findViewById(R.id.textView2);
-                TextView qty = findViewById(R.id.textView3);
-                TextView loc = findViewById(R.id.textView4);
-                TextView date = findViewById(R.id.textView6);
+
                 uid.setText(temp[0]);
                 ProdName.setText(temp[1]);
                 qty.setText(temp[2]);
