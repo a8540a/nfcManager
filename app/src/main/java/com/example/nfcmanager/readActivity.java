@@ -35,8 +35,8 @@ public class readActivity extends AppCompatActivity {
 
         uid = findViewById(R.id.textView);
         ProdName = findViewById(R.id.textView2);
-        qty = findViewById(R.id.textView3);
-        loc = findViewById(R.id.textView4);
+        qty = findViewById(R.id.textView4);
+        loc = findViewById(R.id.textView3);
         date = findViewById(R.id.textView6);
 
         nfcAdapter = NfcAdapter.getDefaultAdapter(this);
@@ -116,8 +116,8 @@ public class readActivity extends AppCompatActivity {
 
                 uid.setText(temp[0]);
                 ProdName.setText(temp[1]);
-                qty.setText(temp[2]);
-                loc.setText(temp[3]);
+                qty.setText(temp[3]);
+                loc.setText(temp[2]);
                 date.setText(temp[4]);
 
             }
