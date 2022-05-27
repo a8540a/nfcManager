@@ -35,7 +35,7 @@ interface SelectAPI{
     @POST("getById/{id}")
     Call<product> selectOne(@Path("id") long id);
 
-    @GET("getAll")
+    @GET("/product/getAll")
     Call<List<product>> selectAll();
 }
 interface InsertAPI{
