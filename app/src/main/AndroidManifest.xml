@@ -14,6 +14,9 @@
         android:theme="@style/Theme.NfcManager"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".listActivity"
+            android:exported="false" />
+        <activity
             android:name=".rwActivity"
             android:exported="false" />
         <activity
