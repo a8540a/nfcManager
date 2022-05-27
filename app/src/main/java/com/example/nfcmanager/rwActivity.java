@@ -39,7 +39,7 @@ public class rwActivity extends AppCompatActivity {
         if(nfcAdapter==null){
             Toast.makeText(this,"no nfc",Toast.LENGTH_LONG).show();
         }
-        pendingIntent = PendingIntent.getActivity(this,0,new Intent(this,this.getClass()).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP),PendingIntent.FLAG_IMMUTABLE);
+        pendingIntent = PendingIntent.getActivity(this,0,new Intent(this,this.getClass()).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP),PendingIntent.FLAG_MUTABLE);
 
         Intent intent = getIntent();
         String uidinput = intent.getStringExtra("uidinput");
