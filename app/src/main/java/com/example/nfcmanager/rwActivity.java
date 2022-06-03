@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.nfc.NfcAdapter;
 import android.nfc.Tag;
 import android.nfc.tech.MifareUltralight;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.EditText;
@@ -39,8 +40,11 @@ public class rwActivity extends AppCompatActivity {
         if(nfcAdapter==null){
             Toast.makeText(this,"no nfc",Toast.LENGTH_LONG).show();
         }
-        pendingIntent = PendingIntent.getActivity(this,0,new Intent(this,this.getClass()).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP),PendingIntent.FLAG_MUTABLE);
-
+        if(Build.VERSION.SDK_INT>=31){
+            pendingIntent = PendingIntent.getActivity(this,0,new Intent(this,this.getClass()).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP),PendingIntent.FLAG_MUTABLE);
+        }else{
+            pendingIntent = PendingIntent.getActivity(this,0,new Intent(this,this.getClass()).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP),0);
+        }
         Intent intent = getIntent();
         String uidinput = intent.getStringExtra("uidinput");
         String prodnameinput = intent.getStringExtra("prodnameinput");
