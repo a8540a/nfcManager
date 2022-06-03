@@ -54,7 +54,7 @@ public class writeActivity extends AppCompatActivity {
 
         //uid = findViewById(R.id.editTextTextPersonName);
         ProdName = findViewById(R.id.editTextTextPersonName2);
-        qty = findViewById(R.id.editTextTextPersonName3);
+        qty = findViewById(R.id.editTextNumber2);
         loc = findViewById(R.id.editTextTextPersonName4);
         //date = findViewById(R.id.editTextTextPersonName5);
 /*
@@ -232,6 +232,7 @@ public class writeActivity extends AppCompatActivity {
 
         byteString = d.mergeStringToByte(tempuid,tempprodName,tempLoc,tempqty,tempstr);
         System.out.println("처리완료");
+        Toast.makeText(writeActivity.this, "등록 완료", Toast.LENGTH_SHORT).show();
         return byteString;
     }
 

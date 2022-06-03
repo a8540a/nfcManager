@@ -13,60 +13,67 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
         android:text="TextView"
         app:layout_constraintStart_toEndOf="@+id/textView25"
-        tools:layout_editor_absoluteY="0dp" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView25"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="24dp"
         android:text="uid : "
-        tools:layout_editor_absoluteX="55dp"
-        tools:layout_editor_absoluteY="0dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView27"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:text="date :"
-        app:layout_constraintTop_toBottomOf="@+id/textView24"
-        tools:layout_editor_absoluteX="49dp" />
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="8dp"
+        android:text="날짜:"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView24" />
 
     <TextView
         android:id="@+id/textView24"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text=" location : "
-        app:layout_constraintTop_toBottomOf="@+id/textView26"
-        tools:layout_editor_absoluteX="20dp" />
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="12dp"
+        android:text="위치:"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView26" />
 
     <TextView
         android:id="@+id/textView26"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="qty : "
-        app:layout_constraintTop_toBottomOf="@+id/textView23"
-        tools:layout_editor_absoluteX="54dp" />
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="4dp"
+        android:text="개수:"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView23" />
 
     <TextView
         android:id="@+id/textView23"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:text="prodname : "
-        app:layout_constraintTop_toBottomOf="@+id/textView25"
-        tools:layout_editor_absoluteX="10dp" />
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:text="상품명 : "
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView25" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="8dp"
         android:text="TextView"
         app:layout_constraintStart_toEndOf="@+id/textView23"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
@@ -75,8 +82,8 @@
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="4dp"
         android:text="TextView"
         app:layout_constraintStart_toEndOf="@+id/textView26"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
@@ -85,8 +92,8 @@
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="8dp"
         android:text="TextView"
         app:layout_constraintStart_toEndOf="@+id/textView27"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
@@ -95,8 +102,8 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="12dp"
         android:text="TextView"
         app:layout_constraintStart_toEndOf="@+id/textView24"
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
@@ -105,7 +112,9 @@
         android:id="@+id/btn_modify"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="modify"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="28dp"
+        android:text="태그 수정"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
