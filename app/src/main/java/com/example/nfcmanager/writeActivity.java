@@ -1,29 +1,24 @@
 package com.example.nfcmanager;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.nfc.NfcAdapter;
+import android.nfc.Tag;
+import android.nfc.tech.MifareUltralight;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
+import android.util.Log;
 import android.widget.EditText;
 import android.widget.Toast;
-import android.nfc.Tag;
-import android.util.Log;
-import java.util.Date;
-import java.text.SimpleDateFormat;
-import java.io.IOException;
-import android.nfc.tech.MifareUltralight;
 
+import androidx.appcompat.app.AppCompatActivity;
+
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 public class writeActivity extends AppCompatActivity {
 
     NfcAdapter nfcAdapter;
