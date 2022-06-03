@@ -52,12 +52,12 @@ public class writeActivity extends AppCompatActivity {
         pendingIntent = PendingIntent.getActivity(this,0,new Intent(this,this.getClass()).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP),PendingIntent.FLAG_MUTABLE);
 
 
-        uid = findViewById(R.id.editTextTextPersonName);
+        //uid = findViewById(R.id.editTextTextPersonName);
         ProdName = findViewById(R.id.editTextTextPersonName2);
         qty = findViewById(R.id.editTextTextPersonName3);
         loc = findViewById(R.id.editTextTextPersonName4);
-        date = findViewById(R.id.editTextTextPersonName5);
-
+        //date = findViewById(R.id.editTextTextPersonName5);
+/*
         Button writeButton = (Button) findViewById(R.id.set);
         writeButton.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -73,8 +73,8 @@ public class writeActivity extends AppCompatActivity {
             }
 
         });
-
-
+*/
+/*
         Button btn_add = (Button) findViewById(R.id.set2);
         btn_add.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -100,7 +100,7 @@ public class writeActivity extends AppCompatActivity {
                 });
             }
         });
-
+*/
 
 
     }
@@ -231,7 +231,7 @@ public class writeActivity extends AppCompatActivity {
         String tempstr = format.format(tempdate);
 
         byteString = d.mergeStringToByte(tempuid,tempprodName,tempLoc,tempqty,tempstr);
-
+        System.out.println("처리완료");
         return byteString;
     }
 
